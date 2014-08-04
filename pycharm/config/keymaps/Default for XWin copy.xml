@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keymap version="1" name="Default for XWin copy" parent="Default for XWin">
+  <action id="ActivateFindToolWindow" />
+  <action id="ActivateTerminalToolWindow">
+    <keyboard-shortcut first-keystroke="alt F12" />
+    <keyboard-shortcut first-keystroke="alt 3" />
+  </action>
+  <action id="ChooseRunConfiguration">
+    <keyboard-shortcut first-keystroke="shift alt F10" />
+    <keyboard-shortcut first-keystroke="control alt R" />
+  </action>
+  <action id="CollapseBlock" />
+  <action id="CopyPaths" />
+  <action id="DatabaseView.GenerateDDLAction" />
+  <action id="EditorCodeBlockEnd" />
+  <action id="EditorCodeBlockStart" />
+  <action id="EditorIndentSelection">
+    <keyboard-shortcut first-keystroke="TAB" />
+    <keyboard-shortcut first-keystroke="shift control PERIOD" />
+  </action>
+  <action id="EditorUnindentSelection">
+    <keyboard-shortcut first-keystroke="shift TAB" />
+    <keyboard-shortcut first-keystroke="shift control COMMA" />
+  </action>
+  <action id="FindNext">
+    <keyboard-shortcut first-keystroke="F3" />
+  </action>
+  <action id="IntroduceVariable" />
+  <action id="MoveEditorToOppositeTabGroup">
+    <keyboard-shortcut first-keystroke="shift alt L" />
+  </action>
+  <action id="NextSplitter">
+    <keyboard-shortcut first-keystroke="control L" />
+  </action>
+  <action id="NextTab">
+    <keyboard-shortcut first-keystroke="alt RIGHT" />
+    <keyboard-shortcut first-keystroke="control CLOSE_BRACKET" />
+  </action>
+  <action id="PrevSplitter">
+    <keyboard-shortcut first-keystroke="control H" />
+  </action>
+  <action id="PreviousTab">
+    <keyboard-shortcut first-keystroke="alt LEFT" />
+    <keyboard-shortcut first-keystroke="control OPEN_BRACKET" />
+  </action>
+  <action id="RemoteHostView.CopyPaths" />
+  <action id="SplitVertically">
+    <keyboard-shortcut first-keystroke="control alt V" />
+  </action>
+  <action id="Stop">
+    <keyboard-shortcut first-keystroke="control F2" />
+    <keyboard-shortcut first-keystroke="shift control C" />
+  </action>
+  <action id="SwitchApply">
+    <keyboard-shortcut first-keystroke="shift alt ENTER" />
+  </action>
+  <action id="SwitchDown">
+    <keyboard-shortcut first-keystroke="shift alt DOWN" />
+  </action>
+  <action id="SwitchLeft">
+    <keyboard-shortcut first-keystroke="shift alt LEFT" />
+  </action>
+  <action id="SwitchRight">
+    <keyboard-shortcut first-keystroke="shift alt RIGHT" />
+  </action>
+  <action id="SwitchUp">
+    <keyboard-shortcut first-keystroke="shift alt UP" />
+  </action>
+  <action id="TypeHierarchy" />
+  <action id="VimPluginToggle" />
+</keymap>
+

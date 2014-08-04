@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+  <component name="StatisticsApplicationUsages">
+    <group name="run-configuration-type">
+      <project id="lbh_berthtrack" values="PythonConfigurationType" />
+      <project id="flask_admin" values="PythonConfigurationType" />
+      <project id="Flask-AppBuilder" values="PythonConfigurationType" />
+    </group>
+    <group name="module type">
+      <project id="lbh_berthtrack" values="PYTHON_MODULE" />
+      <project id="berthdata" values="PYTHON_MODULE" />
+      <project id="gpr_website" values="PYTHON_MODULE" />
+      <project id="et_track_demo" values="PYTHON_MODULE" />
+      <project id="berthapp" values="PYTHON_MODULE" />
+      <project id="flask_admin" values="PYTHON_MODULE" />
+      <project id="sentilib" values="PYTHON_MODULE" />
+      <project id="test_apps" values="PYTHON_MODULE" />
+      <project id="flask_security" values="PYTHON_MODULE" />
+      <project id="sentiweb" values="PYTHON_MODULE" />
+      <project id="flask-admin" values="PYTHON_MODULE" />
+      <project id="test_lib" values="PYTHON_MODULE" />
+      <project id="Flask-AppBuilder" values="PYTHON_MODULE" />
+      <project id="flask_reporting" values="PYTHON_MODULE" />
+      <project id="Desktop" values="PYTHON_MODULE" />
+    </group>
+    <group name="vcs">
+      <project id="berthdata" values="Git" />
+      <project id="et_track_demo" values="Git" />
+      <project id="flask-admin" values="Git" />
+      <project id="sentiweb" values="Git" />
+      <project id="Flask-AppBuilder" values="Git" />
+      <project id="flask_reporting" values="Git" />
+    </group>
+    <group name="py-packages">
+      <project id="gpr_website" values="Flask-SQLAlchemy,Werkzeug,gunicorn,Flask,Flask-Admin,WTForms,wsgiref,SQLAlchemy,MarkupSafe,argparse,itsdangerous,Jinja2,psycopg2" />
+      <project id="berthapp" values="itsdangerous,pandas,wsgiref,numpy,pytz,psycopg2,argparse,six,MarkupSafe,WTForms,Werkzeug,Flask-SQLAlchemy,Jinja2,gunicorn,SQLAlchemy,Flask,python-dateutil,Flask-Admin" />
+      <project id="flask-admin" values="Flask,wtf-peewee,pymongo,flask-mongoengine,nose,mongoengine" />
+      <project id="sentiweb" values="Flask-SQLAlchemy,Flask-Cache,Flask-OpenID,Flask-Script,numpy,gunicorn,psycopg2,scipy,beautifulsoup4,Flask-Testing,scikit-learn,networkx,python-nvd3,Flask-Babel,python-dateutil,Flask-Login,xlrd,nose,bokeh,Flask-Mail,pandas" />
+      <project id="Flask-AppBuilder" values="Flask,Flask-WTF,Flask-OpenID,Flask-SQLAlchemy,Flask-Login,Flask-BabelPkg" />
+    </group>
+    <group name="run-configuration-type-temp">
+      <project id="lbh_berthtrack" values="PythonConfigurationType" />
+      <project id="test_apps" values="PythonConfigurationType" />
+      <project id="flask_security" values="PythonConfigurationType" />
+      <project id="sentiweb" values="PythonConfigurationType" />
+    </group>
+    <group name="file-type">
+      <project id="lbh_berthtrack" values="Python,UNKNOWN,Images,XML,HTML,SQLite Database,PLAIN_TEXT,C++,Native,ARCHIVE" />
+      <project id="berthdata" values="UNKNOWN,Python,XML" />
+      <project id="gpr_website" values="JavaScript,PLAIN_TEXT,HTML,Images,UNKNOWN,XML,CSS" />
+      <project id="et_track_demo" values="XML,HTML,UNKNOWN,Python" />
+      <project id="berthapp" values="Python,XML,C++,HTML,PLAIN_TEXT,Native,Cython,ReST,Images,Ini,UNKNOWN,Locale,CSS,JSON,ARCHIVE,JavaScript" />
+      <project id="flask_admin" values="HTML,PLAIN_TEXT,XML,Images,Python,UNKNOWN,CSS,JavaScript,Locale" />
+      <project id="sentilib" values="XML,PLAIN_TEXT,ReST,UNKNOWN,LESS,JSON,SCSS,CSS,JavaScript,SQLite Database,Python,JSHint,YAML,HTML,CoffeeScript,Images,SQL" />
+      <project id="test_apps" values="XML,Python,UNKNOWN,SQLite Database" />
+      <project id="flask_security" values="UNKNOWN,XML,HTML,Python,PLAIN_TEXT" />
+      <project id="sentiweb" values="Cython,PLAIN_TEXT,C++,Python,HTML,ARCHIVE,Locale,CSS,Images,JavaScript,JSHint,XML,LESS,JSON,UNKNOWN,ReST,Ini,YAML,Native" />
+      <project id="flask-admin" values="XML,Python,JavaScript,SQLite Database,Native,UNKNOWN,YAML,Locale,Ini,ReST,HTML,CSS,PLAIN_TEXT,Images" />
+      <project id="test_lib" values="XML,Python,HTML,PLAIN_TEXT,SQLite Database,UNKNOWN" />
+      <project id="Flask-AppBuilder" values="CSS,Python,Locale,XML,UNKNOWN,YAML,Images,HTML,ReST,PLAIN_TEXT,JavaScript" />
+      <project id="flask_reporting" values="UNKNOWN,JSON,Python,Images,SQL,CoffeeScript,PLAIN_TEXT,CSS,JavaScript,HTML,SCSS,XML" />
+      <project id="Desktop" values="UNKNOWN,SQL files,Native,XML,HTML,Images" />
+    </group>
+    <group name="javaScript Scope Usages">
+      <project id="lbh_berthtrack" values="Project,Project" />
+      <project id="gpr_website" values="Project,Project" />
+      <project id="flask_admin" values="Project,Project" />
+      <project id="berthapp" values="Project,Project" />
+      <project id="et_track_demo" values="Project,Project" />
+      <project id="sentilib" values="Project,Project" />
+      <project id="test_apps" values="Project,Project" />
+      <project id="flask_security" values="Project,Project" />
+      <project id="flask-admin" values="Project,Project" />
+      <project id="sentiweb" values="Project,Project" />
+      <project id="test_lib" values="Project,Project" />
+      <project id="Flask-AppBuilder" values="Project,Project" />
+      <project id="flask_reporting" values="Project,Project" />
+    </group>
+    <group name="JavaScript versions">
+      <project id="lbh_berthtrack" values="DEFAULT" />
+      <project id="gpr_website" values="DEFAULT" />
+      <project id="flask_admin" values="DEFAULT" />
+      <project id="berthapp" values="DEFAULT" />
+      <project id="et_track_demo" values="DEFAULT" />
+      <project id="sentilib" values="DEFAULT" />
+      <project id="test_apps" values="DEFAULT" />
+      <project id="flask_security" values="DEFAULT" />
+      <project id="flask-admin" values="DEFAULT" />
+      <project id="sentiweb" values="DEFAULT" />
+      <project id="test_lib" values="DEFAULT" />
+      <project id="Flask-AppBuilder" values="DEFAULT" />
+      <project id="flask_reporting" values="DEFAULT" />
+    </group>
+    <group name="py-interpreter">
+      <project id="berthdata" values="Python 3.4.0" />
+      <project id="lbh_berthtrack" values="Python 2.7.6" />
+      <project id="gpr_website" values="Python 3.4.0" />
+      <project id="flask_admin" values="Python 3.4.0" />
+      <project id="berthapp" values="Python 2.7.6" />
+      <project id="et_track_demo" values="Python 2.7.6" />
+      <project id="sentilib" values="Python 2.7.6" />
+      <project id="test_apps" values="Python 2.7.6" />
+      <project id="flask_security" values="Python 2.7.6" />
+      <project id="flask-admin" values="Python 2.7.6" />
+      <project id="sentiweb" values="Python 2.7.6" />
+      <project id="Flask-AppBuilder" values="Python 2.7.6" />
+      <project id="flask_reporting" values="Python 2.7.6" />
+      <project id="Desktop" values="Python 3.4.0" />
+    </group>
+  </component>
+  <component name="UsageTrigger">
+    <counts>
+      <entry feature="CreateFile.CreateFileAction" count="14" />
+      <entry feature="execute.PythonConfigurationType.Coverage" count="1" />
+      <entry feature="execute.PythonConfigurationType.Run" count="206" />
+      <entry feature="ide.settings.General" count="1" />
+      <entry feature="ide.settings.HTML" count="2" />
+      <entry feature="ide.settings.Keymap" count="2" />
+      <entry feature="ide.settings.Project_Interpreter" count="4" />
+      <entry feature="ide.settings.Project_Structure" count="1" />
+      <entry feature="ide.settings.Python_Template_Languages" count="2" />
+      <entry feature="ide.settings.Vim_Emulation" count="1" />
+      <entry feature="ideaapp.started" count="43" />
+      <entry feature="uml.ShowDiagram.AlchemyModelDependency" count="7" />
+    </counts>
+  </component>
+</application>
+

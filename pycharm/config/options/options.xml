@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+  <component name="DimensionService">
+    <location key="FileChooserDialogImpl.0.0.1366.768" x="466" y="148" />
+    <location key="Diagram.Print.Preview.Dialog.0.0.1366.768" x="0" y="0" />
+    <location key="WELCOME_SCREEN.0.0.1366.768" x="678" y="273" />
+    <location key="CommitChangelistDialog2.0.0.1440.900" x="357" y="146" />
+    <location key="ProcessPopupWindow.0.0.1440.900" x="819" y="653" />
+    <location key="#Updates.0.0.1440.900" x="234" y="346" />
+    <location key="#Vim_Emulation.0.0.1440.900" x="470" y="183" />
+    <location key="WELCOME_SCREEN.0.0.1440.900" x="715" y="273" />
+    <location key="#com.intellij.fileTypes.FileTypeChooser.0.0.1440.900" x="422" y="252" />
+    <location key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog.0.0.1440.900" x="411" y="124" />
+    <location key="OptionsEditor.0.0.1440.900" x="216" y="38" />
+    <location key="#Browse_JetBrains_Plugins_.0.0.1440.900" x="271" y="121" />
+    <location key="OptionsEditor.0.0.1366.768" x="0" y="0" />
+    <location key="FileChooserDialogImpl.0.0.1440.900" x="382" y="142" />
+    <location key="WELCOME_SCREEN.0.0.0.0" x="683" y="372" />
+    <location key="#Vim_Emulation.0.0.1366.768" x="433" y="103" />
+    <location key="GitCloneDialog.0.0.1366.768" x="479" y="286" />
+    <location key="#com.intellij.execution.impl.EditConfigurationsDialog.0.0.1440.900" x="223" y="127" />
+    <location key="EditParametersPopupWindow.0.0.1440.900" x="522" y="336" />
+    <location key="#com.intellij.execution.impl.EditConfigurationsDialog.0.0.1366.768" x="157" y="72" />
+    <location key="DirDiffDialog.0.0.1440.900" x="100" y="96" />
+    <location key="com.intellij.openapi.editor.actions.MultiplePasteAction$1.0.0.1366.768" x="0" y="34" />
+    <location key="#com.intellij.fileTypes.FileTypeChooser.0.0.1366.768" x="400" y="172" />
+    <size key="GridCell.Tab.0.right.0.0.1366.768" width="1366" height="193" />
+    <size key="FileChooserDialogImpl.0.0.1366.768" width="492" height="494" />
+    <size key="Diagram.Print.Preview.Dialog.0.0.1366.768" width="461" height="766" />
+    <size key="CommitChangelistDialog2.0.0.1440.900" width="715" height="601" />
+    <size key="GridCell.Tab.0.center.0.0.1440.900" width="1440" height="238" />
+    <size key="ProcessPopupWindow.0.0.1440.900" width="618" height="195" />
+    <size key="javadoc.popup.0.0.1366.768" width="562" height="359" />
+    <size key="#Updates.0.0.1440.900" width="953" height="227" />
+    <size key="GridCell.Tab.0.bottom.0.0.1440.900" width="1440" height="238" />
+    <size key="javadoc.popup.0.0.1440.900" width="509" height="286" />
+    <size key="#Vim_Emulation.0.0.1440.900" width="489" height="556" />
+    <size key="GridCell.Tab.0.right.0.0.1440.900" width="1440" height="238" />
+    <size key="#com.intellij.fileTypes.FileTypeChooser.0.0.1440.900" width="575" height="416" />
+    <size key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog.0.0.1440.900" width="524" height="512" />
+    <size key="GridCell.Tab.0.bottom.0.0.1366.768" width="1366" height="193" />
+    <size key="GridCell.Tab.0.center.0.0.1366.768" width="1366" height="193" />
+    <size key="OptionsEditor.0.0.1440.900" width="1224" height="862" />
+    <size key="#Browse_JetBrains_Plugins_.0.0.1440.900" width="824" height="694" />
+    <size key="OptionsEditor.0.0.1366.768" width="1366" height="768" />
+    <size key="FileChooserDialogImpl.0.0.1440.900" width="576" height="566" />
+    <size key="GridCell.Tab.0.left.0.0.1366.768" width="1366" height="193" />
+    <size key="GridCell.Tab.0.left.0.0.1440.900" width="1440" height="238" />
+    <size key="#Vim_Emulation.0.0.1366.768" width="489" height="556" />
+    <size key="GotoFile_FileTypePopup.0.0.1440.900" width="209" height="201" />
+    <size key="GitCloneDialog.0.0.1366.768" width="397" height="190" />
+    <size key="EditParametersPopupWindow.0.0.1440.900" width="476" height="276" />
+    <size key="DirDiffDialog.0.0.1440.900" width="1240" height="704" />
+    <size key="com.intellij.openapi.editor.actions.MultiplePasteAction$1.0.0.1366.768" width="324" height="755" />
+    <size key="#com.intellij.fileTypes.FileTypeChooser.0.0.1366.768" width="545" height="416" />
+    <extendedState key="DirDiffDialog" state="0" />
+  </component>
+  <component name="LafManager">
+    <laf class-name="idea.dark.laf.classname" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ExpandEnvironmentPanel" value="true" />
+    <property name="CommitChangeListDialog.SPLITTER_PROPORTION_2" value="0.5" />
+    <property name="DefaultHtmlDoctype.MigrateToHtml5" value="true" />
+    <property name="toolwindow.stripes.buttons.info.shown" value="true" />
+    <property name="PyCharm.InitialConfiguration" value="true" />
+    <property name="SingleInspectionProfilePanel.HORIZONTAL_DIVIDER_PROPORTION" value="0.5" />
+    <property name="file.colors.enable.non.project" value="Yellow" />
+    <property name="log.debug.categories" value="" />
+    <property name="PLUGIN_FILTER" value="" />
+    <property name="SingleInspectionProfilePanel.VERTICAL_DIVIDER_PROPORTION" value="0.5" />
+    <property name="CommitChangeListDialog.DETAILS_SHOW_OPTION_" value="false" />
+    <property name="KEYMAP" value="indent&#10;stop&#10;move to opp&#10;split&#10;scroll" />
+    <property name="PyCharm.initialConfigurationShown" value="true" />
+    <property name="ChangesViewManager.DETAILS_SPLITTER_PROPORTION" value="0.5" />
+    <property name="OpenOrAttachDialog.OpenMode" value="new" />
+    <property name="Non-Project Files" value="Yellow" />
+    <property name="installation.uid" value="235a3926-cb46-4402-b608-2bf62ca3f1e6" />
+    <property name="ignoreUltimateEdition" value="true" />
+    <property name="DeploymentNotificationsComponent.WarnDisplayed.Java7&amp;Windows7FTPIssue" value="false" />
+    <property name="file.chooser.recent.files" value="$USER_HOME$/sentilus/flask-admin&#10;/home/guy/sentilus/Flask-AppBuilder&#10;/home/guy/sentilus/flask_reporting&#10;/home/guy/sentilus/flask-sentifront&#10;/usr/bin/python2.7&#10;/home/guy/sentilus/flask-sentifront/flask_sentifront&#10;/home/guy/sentilus/et_track_demo&#10;/home/guy/sentilus/berthapp/models.py&#10;/home/guy/sentilus/sentiweb-dev/sentiweb&#10;/home/guy/sentilus/lbh_berthtrack&#10;/home/guy/sentilus/test_apps/tables_viewing.py&#10;/home/guy/anaconda/lib/python2.7/site-packages/flask_security&#10;/home/guy/anaconda/lib/python2.7/site-packages/flask_admin&#10;/home/guy/anaconda/bin&#10;/home/guy/sentilus/sentilib&#10;/home/guy/sentilus/test_lib&#10;/media/andante/sentilus/sentilib&#10;/home/guy/sentilus/uchakide_website&#10;/home/guy/sentilus/uchakide_website/index.html&#10;/home/guy/gpr_website&#10;/home/guy/sentilus/test_apps&#10;/home/guy/sentilus/berthapp&#10;/home/guy/sentilus/berthdata&#10;/home/guy/anaconda/bin/python&#10;/home/guy/sentilus/sentiweb" />
+    <property name="PyCharm.InitialConfiguration.V5" value="true" />
+    <property name="PyCharm.InitialConfiguration.V4" value="true" />
+    <property name="PyCharm.InitialConfiguration.V3" value="true" />
+    <property name="FindSplitterProportion" value="0.25" />
+    <property name="PyCharm.InitialConfiguration.V2" value="true" />
+    <property name="DefaultHtmlDoctype.Refreshed" value="1" />
+    <property name="Copy.OpenInEditor" value="true" />
+    <property name="FileTemplates.CurrentTab" value="Templates" />
+    <property name="FileTemplates.SelectedTemplate" value="Html" />
+    <property name="LayoutCode.optimizeImports" value="false" />
+    <property name="LayoutCode.processChangedText" value="false" />
+    <property name="PACKAGE_FILTER" value="flask" />
+    <property name="ExpandBeforeRunStepsPanel" value="true" />
+    <property name="RunConfigurable.dividerProportion" value="0.3" />
+    <property name="dir.diff.space.button.info" value="2" />
+    <property name="dir.diff.panel.divider.location" value="200" />
+    <property name="com.intellij.openapi.editor.actions.MultiplePasteAction$1.splitter" value="0.3" />
+  </component>
+</application>
+
