@@ -38,7 +38,7 @@ endif
 if has('vim_starting')
     set rtp+=$HOME/.vim/bundle/neobundle.vim/
 endif
-call neobundle#rc(expand($HOME.'/.vim/bundle/'))
+call neobundle#begin(expand($HOME.'/.vim/bundle/'))
 
 " is better if NeoBundle rules NeoBundle (needed!)
 NeoBundle 'Shougo/neobundle.vim'
@@ -75,6 +75,8 @@ NeoBundleLazy 'osyo-manga/unite-quickfix', {'autoload':{'unite_sources':
             \ ['quickfix', 'location_list']}}
 NeoBundleLazy 'osyo-manga/unite-fold', {'autoload':{'unite_sources':'fold'}}
 NeoBundleLazy 'tacroe/unite-mark', {'autoload':{'unite_sources':'mark'}}
+NeoBundleLazy 'Shougo/neomru.vim', {'autoload':{'unite_sources': 
+            \['file_mru', 'directory_mru']}}
 
 " File explorer (needed where ranger is not available)
 NeoBundleLazy 'Shougo/vimfiler', {'autoload' : { 'commands' : ['VimFiler']}}
@@ -83,6 +85,11 @@ NeoBundleLazy 'Shougo/vimfiler', {'autoload' : { 'commands' : ['VimFiler']}}
 NeoBundleLazy 'Shougo/junkfile.vim', {'autoload':{'commands':'JunkfileOpen',
             \ 'unite_sources':['junkfile','junkfile/new']}}
 
+" Unite plugin that provides command line completition
+NeoBundle 'joedicastro/unite-cmdmatch'
+
+" Unite plugin that provides spell suggestions
+NeoBundle 'kopischke/unite-spell-suggest'
 " }}}
 
 " Colorschemes {{{
@@ -124,12 +131,14 @@ NeoBundle 'joedicastro/vim-github-dashboard'
 
 " }}}
 
-" Markdown {{{
+" Markdown & reStructuredText {{{
 
 " Markdown Syntax
 NeoBundleLazy 'joedicastro/vim-markdown'
 " Makes a Markdown Extra preview into the browser
 NeoBundleLazy 'joedicastro/vim-markdown-extra-preview'
+" reStructuredText in vim. Your personal Wiki in RST
+NeoBundleLazy 'Rykka/riv.vim', {'autoload': {'filetypes': ['rst']}} 
 
 " }}}
 
@@ -145,7 +154,8 @@ NeoBundle 'Shougo/vinarise.vim'
 " Python {{{
 
 " Autocompletion
-NeoBundle 'Shougo/neocomplete.vim'
+" NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'davidhalter/jedi-vim'
 " A Python plugin
 NeoBundleLazy 'klen/python-mode', {'autoload': {'filetypes': ['python']}}
 " Admin virtualenvs
@@ -154,23 +164,26 @@ NeoBundle 'jmcantrell/vim-virtualenv'
 NeoBundleLazy 'Yggdroot/indentLine', {'autoload': {'filetypes': ['python']}}
 " Show reports from coverage.py
 NeoBundleLazy 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': ['python']}}
-
+" Sort imports
+ NeoBundle 'fisadev/vim-isort', {'autoload': {'filetypes': ['python']}}
 " }}}
 
 " Code Snippets {{{
 
 " Powerful and advanced Snippets tool
 NeoBundle 'SirVer/ultisnips'
+" Snippets for Ultisnips
+NeoBundle 'honza/vim-snippets'
 
 " }}}
 
 " Syntax {{{
 
-NeoBundleLazy 'vim-scripts/JSON.vim', {'autoload': {'filetypes': ['json']}}
+NeoBundleLazy 'elzr/vim-json', {'filetypes' : 'json'}
 NeoBundleLazy 'vim-scripts/po.vim--gray', {'autoload': {'filetypes': ['po']}}
 NeoBundleLazy 'joedicastro/vim-pentadactyl', {
             \ 'autoload': {'filetypes': ['pentadactyl']}}
-NeoBundle 'scrooloose/syntastic'
+" NeoBundle 'scrooloose/syntastic'
 
 " }}}
 
@@ -214,8 +227,6 @@ NeoBundle 'kana/vim-textobj-lastpat' " a/, i/, a?, i?
 NeoBundle 'kana/vim-textobj-line' " al, il
 NeoBundle 'kana/vim-textobj-underscore' " a_, i_
 NeoBundle 'kana/vim-textobj-user'
-" multiple cursors
-NeoBundle 'terryma/vim-multiple-cursors'
 
 " }}}
 
@@ -238,7 +249,7 @@ NeoBundleLazy 'othree/html5.vim', {'autoload':
 NeoBundleLazy 'mattn/emmet-vim', {'autoload':
             \ {'filetypes': ['html', 'xhttml', 'css', 'xml', 'xls', 'markdown']}}
 
-NeoBundle 'denysonique/vim-coffee-script',{'autoload' : {
+NeoBundle 'kchmck/vim-coffee-script',{'autoload' : {
             \ 'commands' : [
                              \ 'CoffeeCompile', 'CoffeeLint', 'CoffeeMake',
                              \ 'CoffeeRun', 'CoffeeWatch'],
@@ -250,7 +261,9 @@ NeoBundle 'denysonique/vim-coffee-script',{'autoload' : {
 " GUI {{{
 
 " A better looking status line
-NeoBundle 'bling/vim-airline'
+" NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 " Zooms a window
 NeoBundleLazy 'vim-scripts/zoomwintab.vim', {'autoload' :
             \{'commands' : 'ZoomWinTabToggle'}}
@@ -274,15 +287,26 @@ NeoBundle 'mattn/webapi-vim'
 
 " }}}
 
+" DBMS {{{
+
+NeoBundleLazy 'joedicastro/dbext.vim', { 'autoload' : { 'filetypes' : 'sql'}}
+
+" }}}
+
+NeoBundle 'benekastah/neomake'
+
 " END BUNDLES }}}
 
-" Auto install the plugins {{{
+call neobundle#end()
+
+" Auto install the Plugins {{{
 
 " First-time plugins installation
 if iCanHazNeoBundle == 0
     echo "Installing Bundles, please ignore key map error messages"
     echo ""
-    :NeoBundleInstall
+    set nomore
+    NeoBundleInstall
 endif
 
 " Check if all of the plugins are already installed, in other case ask if we
@@ -316,7 +340,6 @@ set go-=m                       " hide the menu
 set go+=rRlLbh                  " show all the scrollbars
 set go-=rRlLbh                  " hide all the scrollbars
 set visualbell                  " turn on the visual bell
-" set cursorline                  " highlight the line under the cursor
 set fillchars+=vert:│           " better looking for windows separator
 set ttyfast                     " better screen redraw
 set title                       " set the terminal title to the current file
@@ -327,7 +350,7 @@ set lazyredraw                  " only redraws if it is needed
 set autoread                    " update a open file edited outside of Vim
 set ttimeoutlen=0               " toggle between modes almost instantly
 set backspace=indent,eol,start  " defines the backspace key behavior
-set virtualedit=all             " to edit where there is no actual character
+set more                        " to show pages using `more` in command outpouts
 
 " }}}
 
@@ -366,7 +389,7 @@ set noswapfile
 set backupdir=$HOME/.vim/tmp/backup/
 set undodir=$HOME/.vim/tmp/undo/
 set directory=$HOME/.vim/tmp/swap/
-set viminfo+=n$HOME/.vim/tmp/viminfo
+" set viminfo+=n$HOME/.vim/tmp/viminfo
 
 " make this dirs if no exists previously
 silent! call MakeDirIfNoExists(&undodir)
@@ -398,7 +421,7 @@ set softtabstop=4              " a soft-tab of four spaces
 set autoindent                 " set on the auto-indent
 
 " set formatoptions=qrn1ct
-" set textwidth=80
+set textwidth=80
 set colorcolumn=81
 
 function! ToggleWrap()
@@ -521,6 +544,7 @@ set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
 " Folding {{{
 
 set foldmethod=marker
+set nofoldenable
 
 " Toggle folding
 
@@ -557,9 +581,11 @@ nmap <Leader>so :setlocal nospell <CR>
 " jump to the next bad spell word
 nmap <Leader>sn ]s
 " suggest words
-nmap <Leader>sp z=
+" nmap <Leader>sp z=
+nmap <Leader>sp :Unite spell_suggest<CR>
 " jump to the next bad spell word and suggests a correct one
-nmap <Leader>sc ]sz=
+" nmap <Leader>sc ]sz=
+nmap <Leader>sc ]s :Unite spell_suggest<CR>
 " add word to the dictionary
 nmap <Leader>sa zg
 " }}}
@@ -730,10 +756,10 @@ nnoremap Y y$
 
 set noshowmode
 
-let g:airline_theme='powerlineish'
-let g:airline_enable_branch=1
+let g:airline_theme='molokai'
 let g:airline_powerline_fonts=1
-let g:airline_detect_whitespace = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
 
 " let g:airline#extensions#tabline#enabled = 2
@@ -765,7 +791,66 @@ augroup plugin_commentary
     au FileType python setlocal commentstring=#%s
     au FileType htmldjango setlocal commentstring={#\ %s\ #}
     au FileType puppet setlocal commentstring=#\ %s
+    au FileType xquery setlocal commentstring=(:\ %s\ :)
 augroup END
+
+" }}}
+
+" DBext {{{
+
+let g:dbext_default_type = 'SQLITE'
+let g:dbext_default_user = ""
+let g:dbext_default_passwd = ""
+let g:dbext_default_display_cmd_line = 0
+let g:dbext_default_prompt_for_parameters=0
+let g:dbext_default_history_file = $HOME.'./vim/tmp/dbext_sql_history.txt'
+
+" Mappings
+
+let g:dbext_default_usermaps = 0
+let g:dbext_map_or_cmd = 'cmd'
+
+vnoremap <Leader>Se :DBExecVisualSQL<CR>
+vnoremap <leader>St :DBSelectFromTable<CR>
+vnoremap <Leader>Sdt :DBDescribeTable<CR>
+vnoremap <Leader>Sdp :DBDescribeProcedure<CR>
+vnoremap <Leader>Slt :DBListTable<CR>
+vnoremap <Leader>Slp :DBListProcedure<CR>
+vnoremap <Leader>Slv :DBListView<CR>
+vnoremap <Leader>Slc :DBListColumn<CR>
+
+nnoremap <Leader>Se :DBExecSQLUnderCursor<CR>
+nnoremap <Leader>SE :DBExecSQLTopX<CR>
+nnoremap <Leader>Sea :1,$DBExecRangeSQL<CR>
+nnoremap <Leader>Sel :.,.DBExecRangeSQL<CR>
+nnoremap <Leader>Sep :'<,'>DBExecRangeSQL<CR>
+nnoremap <Leader>St :DBSelectFromTable<CR>
+nnoremap <Leader>ST :DBSelectFromTableTopX<CR>
+nnoremap <Leader>Stw :DBSelectFromTableWithWhere<CR>
+nnoremap <Leader>Sta :DBSelectFromTableAskName<CR>
+nnoremap <Leader>Sd :DBDescribeTable<CR>
+nnoremap <Leader>Sda :DBDescribeTableAskName<CR>
+nnoremap <Leader>Sdp :DBDescribeProcedure<CR>
+nnoremap <Leader>Sdpa :DBDescribeProcedureAskName<CR>
+nnoremap <Leader>Slt :DBListTable<CR>
+nnoremap <Leader>Slp :DBListProcedure<CR>
+nnoremap <Leader>Slv :DBListView<CR>
+nnoremap <Leader>Slc :DBListColumn<CR>
+nnoremap <Leader>Svr :DBListVar<CR>
+nmap <silent> <Leader>Sal :.,.DBVarRangeAssign<CR>
+nmap <silent> <Leader>Saa :1,$DBVarRangeAssign<CR>
+nmap <silent> <Leader>Sap :'<,'>DBVarRangeAssign<CR>
+xmap <silent> <Leader>Sa :DBVarRangeAssign<CR>
+nnoremap <Leader>Sh :DBHistory<CR>
+nnoremap <Leader>So :DBOrientation<CR>
+nnoremap <Leader>Sbp <Plug>DBPromptForBufferParameters<CR>
+
+" SQLite
+let g:dbext_default_SQLITE_bin = 'sqlite3'
+" let g:dbext_default_SQLITE_cmd_header        = ".mode column\n.headers ON\n"
+" let g:dbext_default_SQLITE_cmd_terminator    = ';'
+" let g:dbext_default_SQLITE_cmd_terminator    = ';'
+" let g:dbext_default_SQLITE_extra             = ''
 
 " }}}
 
@@ -881,24 +966,68 @@ let g:indentLine_color_term = 239
 
 " }}}
 
+
+" Jedi {{{
+let g:jedi#rename_command = "<leader>R"
+let g:jedi#usages_command = "<LocalLeader>n"
+
+" }}}
+
 " Neocomplete {{{
 
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_auto_select = 1
-let g:neocomplete#enable_refresh_always = 1
-let g:neocomplete#max_list = 30
-let g:neocomplete#min_keyword_length = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 1
-let g:neocomplete#data_directory = $HOME.'/.vim/tmp/neocomplete'
+" let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#enable_smart_case = 1
+" let g:neocomplete#enable_refresh_always = 1
+" let g:neocomplete#max_list = 30
+" let g:neocomplete#min_keyword_length = 1
+" let g:neocomplete#sources#syntax#min_keyword_length = 1
+" let g:neocomplete#data_directory = $HOME.'/.vim/tmp/neocomplete'
 
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" " disable the auto select feature by default to speed up writing without
+" " obstacles (is optimal for certain situations)
+" let g:neocomplete#enable_auto_select = 0
+                                        
+" " toggle the auto select feature
+" function! ToggleNeoComplete()
+"   if !g:neocomplete#disable_auto_complete && g:neocomplete#enable_auto_select
+"       let g:neocomplete#disable_auto_complete = 0
+"       let g:neocomplete#enable_auto_select = 0
+"   elseif !g:neocomplete#disable_auto_complete && !g:neocomplete#enable_auto_select
+"       let g:neocomplete#disable_auto_complete = 1
+"       let g:neocomplete#enable_auto_select = 0
+"   elseif g:neocomplete#disable_auto_complete && !g:neocomplete#enable_auto_select
+"       let g:neocomplete#disable_auto_complete = 0
+"       let g:neocomplete#enable_auto_select = 1
+"   endif
+" endfunction
+" nnoremap <silent><Leader>ea :call ToggleNeoComplete()<CR>
+   
+" " Enable omni completion.
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" if !exists('g:neocomplete#sources#omni#input_patterns')
+"     let g:neocomplete#sources#omni#input_patterns = {}
+" endif
+
+" let g:neocomplete#sources#omni#input_patterns.python='[^. \t]\.\w*'
+
+" }}}
+
+" Neobundle {{{
+
+let g:neobundle#log_filename = $HOME.'/.vim/tmp/neobundle.log'
+
+" }}}
+
+" neomru {{{
+
+let g:neomru#file_mru_path = $HOME.'/.vim/tmp/neomru/file'
+let g:neomru#directory_mru_path = $HOME.'/.vim/tmp/neomru/directory'
 
 " }}}
 
@@ -910,38 +1039,35 @@ let g:po_translator = "joe di castro <joe@joedicastro.com>"
 
 " PythonMode {{{ -------------------------------------------------------------
 
-nmap <silent><Leader>n :PyLint<CR>
+nmap <silent><Leader>n :PymodeLint<CR>
 
-let g:pymode_breakpoint_key = '<Leader>B'
+let g:pymode_breakpoint_bind = '<Leader>B'
 
 let g:pymode_lint = 1
-let g:pymode_lint_write = 0
-let g:pymode_lint_checker = 'pylint,pep8,mccabe,pep257'
+let g:pymode_lint_on_write = 0
+let g:pymode_lint_checkers = ['pylint', 'pep8', 'mccabe', 'pep257']
 let g:pymode_lint_ignore = ''
-let g:pymode_lint_config = $HOME.'/dotfiles/pylint/pylint.rc'
 let g:pymode_virtualenv = 0
-
 let g:pymode_rope = 1
-let g:pymode_rope_goto_def_newwin = 'new'
-let g:pymode_rope_guess_project = 0
-let g:pymode_rope_vim_completion = 1
-let g:pymode_rope_always_show_complete_menu = 1
+
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 1
 
 " }}}
 
 " Syntastic {{{
 
-nmap <silent><Leader>N :SyntasticCheck<CR>:Errors<CR>
+" nmap <silent><Leader>N :SyntasticCheck<CR>:Errors<CR>
 
-let g:syntastic_python_pylint_exe = "pylint2"
-let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'active_filetypes': [],
-            \ 'passive_filetypes': ['python'] }
+" let g:syntastic_python_pylint_exe = "pylint2"
+" let g:syntastic_mode_map = { 'mode': 'active',
+"             \ 'active_filetypes': [],
+"             \ 'passive_filetypes': ['python'] }
 
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol  = '⚡'
-let g:syntastic_style_warning_symbol  = '⚡'
+" let g:syntastic_error_symbol='✗'
+" let g:syntastic_warning_symbol='⚠'
+" let g:syntastic_style_error_symbol  = '⚡'
+" let g:syntastic_style_warning_symbol  = '⚡'
 
 " }}}
 
@@ -1165,6 +1291,8 @@ let g:unite_source_menu_menus.text.command_candidates = [
         \'call ToggleRelativeAbsoluteNumber()'],
     \['▷ toggle wrapping                                            ⌘ ,ew',
         \'call ToggleWrap()'],
+    \['▷ toggle auto-completion state (manual → disabled → auto)    ⌘ ,ea',
+        \'call ToggleNeoCompleteAutoSelect()'],
     \['▷ show hidden chars                                          ⌘ ,eh',
         \'set list!'],
     \['▷ toggle fold                                                ⌘ /',
@@ -1219,10 +1347,12 @@ let g:unite_source_menu_menus.neobundle.command_candidates = [
         \'Unite output:NeoBundleDocs'],
     \['▷ neobundle clean',
         \'NeoBundleClean'],
+    \['▷ neobundle rollback',
+        \'exe "NeoBundleRollback" input("plugin: ")'],
     \['▷ neobundle list',
         \'Unite output:NeoBundleList'],
     \['▷ neobundle direct edit',
-        \'NeoBundleDirectEdit'],
+        \'NeoBundleExtraEdit'],
     \]
 nnoremap <silent>[menu]n :Unite -silent -start-insert menu:neobundle<CR>
 " }}}
@@ -1298,13 +1428,13 @@ let g:unite_source_menu_menus.code = {
     \}
 let g:unite_source_menu_menus.code.command_candidates = [
     \['▷ run python code                            (pymode)        ⌘ ,r',
-        \'Pyrun'],
+        \'PymodeRun'],
     \['▷ show docs for the current word             (pymode)        ⌘ K',
         \'normal K'],
     \['▷ insert a breakpoint                        (pymode)        ⌘ ,B',
         \'normal ,B'],
     \['▷ pylint check                               (pymode)        ⌘ ,n',
-        \'PyLint'],
+        \'PymodeLint'],
     \['▷ run with python2 in tmux panel             (vimux)         ⌘ ,rr',
         \'normal ,rr'],
     \['▷ run with python3 in tmux panel             (vimux)         ⌘ ,r3',
@@ -1323,38 +1453,30 @@ let g:unite_source_menu_menus.code.command_candidates = [
         \'VimuxInspectRunner'],
     \['▷ close tmux panel                           (vimux)         ⌘ ,rq',
         \'VimuxCloseRunner'],
-    \['▷ rope autocompletion                        (rope)          ⌘ C-[espacio]',
-        \'RopeCodeAssist'],
-    \['▷ go to definition                           (rope)          ⌘ C-C g',
-        \'RopeGotoDefinition'],
-    \['▷ reorganize imports                         (rope)          ⌘ C-C r o',
-        \'RopeOrganizeImports'],
-    \['▷ refactorize - rename                       (rope)          ⌘ C-C r r',
-        \'RopeRename'],
-    \['▷ refactorize - extract variable             (rope)          ⌘ C-C r l',
-        \'RopeExtractVariable'],
-    \['▷ refactorize - extract method               (rope)          ⌘ C-C r m',
-        \'RopeExtractMethod'],
-    \['▷ refactorize - inline                       (rope)          ⌘ C-C r i',
-        \'RopeInline'],
-    \['▷ refactorize - move                         (rope)          ⌘ C-C r v',
-        \'RopeMove'],
-    \['▷ refactorize - restructure                  (rope)          ⌘ C-C r x',
-        \'RopeRestructure'],
-    \['▷ refactorize - use function                 (rope)          ⌘ C-C r u',
-        \'RopeUseFunction'],
-    \['▷ refactorize - introduce factory            (rope)          ⌘ C-C r f',
-        \'RopeIntroduceFactory'],
-    \['▷ refactorize - change signature             (rope)          ⌘ C-C r s',
-        \'RopeChangeSignature'],
-    \['▷ refactorize - rename current module        (rope)          ⌘ C-C r 1 r',
-        \'RopeRenameCurrentModule'],
-    \['▷ refactorize - move current module          (rope)          ⌘ C-C r 1 m',
-        \'RopeMoveCurrentModule'],
-    \['▷ refactorize - module to package            (rope)          ⌘ C-C r 1 p',
-        \'RopeModuleToPackage'],
-    \['▷ show docs for current word                 (rope)          ⌘ C-C r a d',
-        \'RopeShowDoc'],
+    \['▷ sort imports                               (isort)',
+        \'Isort'],
+    \['▷ go to definition                           (pymode-rope)   ⌘ C-C g',
+        \'call pymode#rope#goto_definition()'],
+    \['▷ find where a function is used              (pymode-rope)   ⌘ C-C f',
+        \'call pymode#rope#find_it()'],
+    \['▷ show docs for current word                 (pymode-rope)   ⌘ C-C d',
+        \'call pymode#rope#show_doc()'],
+    \['▷ reorganize imports                         (pymode-rope)   ⌘ C-C r o',
+        \'call pymode#rope#organize_imports()'],
+    \['▷ refactorize - rename                       (pymode-rope)   ⌘ C-C r r',
+        \'call pymode#rope#rename()'],
+    \['▷ refactorize - inline                       (pymode-rope)   ⌘ C-C r i',
+        \'call pymode#rope#inline()'],
+    \['▷ refactorize - move                         (pymode-rope)   ⌘ C-C r v',
+        \'call pymode#rope#move()'],
+    \['▷ refactorize - use function                 (pymode-rope)   ⌘ C-C r u',
+        \'call pymode#rope#use_function()'],
+    \['▷ refactorize - change signature             (pymode-rope)   ⌘ C-C r s',
+        \'call pymode#rope#signature()'],
+    \['▷ refactorize - rename current module        (pymode-rope)   ⌘ C-C r 1 r',
+        \'PymodeRopeRenameModule'],
+    \['▷ refactorize - module to package            (pymode-rope)   ⌘ C-C r 1 p',
+        \'PymodeRopeModuleToPackage'],
     \['▷ syntastic toggle                           (syntastic)',
         \'SyntasticToggleMode'],
     \['▷ syntastic check & errors                   (syntastic)     ⌘ ,N',
@@ -1373,7 +1495,7 @@ let g:unite_source_menu_menus.code.command_candidates = [
         \'Coveragepy session'],
     \['▷ toggle coverage marks                      (coveragepy)',
         \'Coveragepy show'],
-    \['▷ CoffeeWatch                                (coffeescript)  ⌘ ,rw',
+    \['▷ coffeewatch                                (coffeescript)  ⌘ ,rw',
         \'CoffeeWatch vert'],
     \['▷ count lines of code',
         \'Unite -default-action= output:call\\ LinesOfCode()'],
@@ -1396,7 +1518,21 @@ let g:unite_source_menu_menus.markdown.command_candidates = [
     \]
 nnoremap <silent>[menu]k :Unite -silent menu:markdown<CR>
 " }}}
-
+ 
+" reST menu {{{
+let g:unite_source_menu_menus.rest = {
+    \ 'description' : '           reStructuredText
+    \                                      ⌘ [space]r',
+    \}
+let g:unite_source_menu_menus.rest.command_candidates = [
+    \['▷ CheatSheet',
+        \'RivCheatSheet'],
+    \['▷ reStructuredText Specification',
+        \'RivSpecification'],
+    \]
+nnoremap <silent>[menu]r :Unite -silent menu:rest<CR>
+" }}}
+ 
 " bookmarks menu {{{
 let g:unite_source_menu_menus.bookmarks = {
     \ 'description' : '      bookmarks
@@ -1530,6 +1666,65 @@ let g:unite_source_menu_menus.vim.command_candidates = [
     \]
 nnoremap <silent>[menu]v :Unite menu:vim -silent -start-insert<CR>
 " }}}
+
+" db menu {{{
+let g:unite_source_menu_menus.db = {
+    \ 'description' : '             database (SQL)
+        \                                        ⌘ [space]S',
+    \}
+let g:unite_source_menu_menus.db.command_candidates = [
+    \['▷ Execute SQL',
+        \'exe "DBExecSQL" " ".input("SQL?: ")'],
+    \['▷ Execute SQL (with limit of n rows)',
+        \'exe "DBExecSQL" " ".input("SQL?: ")'],
+    \['▷ SQL SELECT statement',
+        \'exe "Select" " ".input("SELECT ")'],
+    \['▷ SQL UPDATE statement',
+        \'exe "Update" " ".input("UPDATE")'],
+    \['▷ SQL INSERT statement',
+        \'exe "Insert" " ".input("INSERT")'],
+    \['▷ SQL DELETE statement',
+        \'exe "Delete" " ".input("DELETE")'],
+    \['▷ SQL CALL statement',
+        \'exe "Call" " ".input("CALL")'],
+    \['▷ SQL DROP statement',
+        \'exe "Drop" " ".input("DROP")'],
+    \['▷ SQL ALTER statement',
+        \'exe "Alter" " ".input("ALTER")'],
+    \['▷ SQL CREATE statement',
+        \'exe "Create" " ".input("CREATE")'],
+    \['▷ List all Tables                                            ⌘ ,Slt',
+        \'DBListTable'],
+    \['▷ List all Procedures                                        ⌘ ,Slp',
+        \'DBListProcedure'],
+    \['▷ List all Views                                             ⌘ ,Slv',
+        \'DBListView'],
+    \['▷ List all Variables                                         ⌘ ,Svr',
+        \'DBListVar'],
+    \['▷ DBext Get Options',
+        \'DBGetOption'],
+    \['▷ DBext Set Option',
+        \'exe "DBSetOption" " ".input("Option: ")'],
+    \['▷ DBext Set Var',
+        \'exe "DBSetVar" " ".input("Var: ")'],
+    \['▷ DBext Set Buffer Parameters',
+        \'DBPromptForBufferParameters'],
+    \['▷ List all Connections       (only DBI/ODBC)',
+        \'DBListConnections'],
+    \['▷ Commit                     (only DBI/ODBC)',
+        \'DBCommit'],
+    \['▷ Rollback                   (only DBI/ODBC)',
+        \'DBRollback'],
+    \['▷ Connect                    (only DBI/ODBC)',
+        \'DBConnect'],
+    \['▷ Disconnect                 (only DBI/ODBC)',
+        \'DBDisconnect'],
+    \]
+
+nnoremap <silent>[menu]S :Unite menu:db -silent -winheight=25 -start-insert<CR>
+
+" }}}
+
 " }}}
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -1537,15 +1732,21 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#source('file_mru,file_rec,file_rec/async,grep,locate',
             \ 'ignore_pattern', join(['\.git/', 'tmp/', 'bundle/'], '\|'))
 
+let g:default_context = {
+    \ 'winheight' : 15,
+    \ 'update_time' : 200,
+    \ 'prompt' : '>>> ',
+    \ 'enable_start_insert' : 0,
+    \ 'enable_short_source_names' : 0,
+    \ 'marked_icon' : '✓',
+    \ 'ignorecase' : 1,
+    \ 'smartcase' : 1,
+\ }
+
+call unite#custom#profile('default', 'context', default_context)
+
 let g:unite_source_history_yank_enable = 1
-let g:unite_enable_start_insert = 0
-let g:unite_enable_short_source_mes = 0
 let g:unite_force_overwrite_statusline = 0
-let g:unite_prompt = '>>> '
-let g:unite_marked_icon = '✓'
-" let g:unite_candidate_icon = '∘'
-let g:unite_winheight = 15
-let g:unite_update_time = 200
 let g:unite_split_rule = 'botright'
 let g:unite_data_directory = $HOME.'/.vim/tmp/unite'
 let g:unite_source_buffer_time_format = '(%d-%m-%Y %H:%M:%S) '
@@ -1671,16 +1872,7 @@ au BufRead,BufNewFile */templates/*.html setlocal filetype=htmldjango.html
 
 " JSON {{{ -------------------------------------------------------------------
 
-" autocmd BufNewFile,BufRead *.json set ft=javascript
-autocmd BufNewFile,BufRead *.json set ft=json
-
 augroup json_autocmd
-  autocmd!
-  autocmd FileType json set autoindent
-  autocmd FileType json set formatoptions=tcq2l
-  autocmd FileType json set textwidth=78 shiftwidth=2
-  autocmd FileType json set softtabstop=2 tabstop=8
-  autocmd FileType json set expandtab
   autocmd FileType json set foldmethod=syntax
 augroup END
 
@@ -1707,6 +1899,18 @@ autocmd FileType markdown NeoBundleSource vim-markdown-extra-preview
 
 " }}}
 
+" RUBY {{{
+
+au FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+
+" }}}
+
+" SQL {{{
+
+autocmd FileType sql DBCheckModeline
+
+" }}}
+
 " END FILETYPES }}}
 
 " Other Customizations {{{ ====================================================
@@ -1720,3 +1924,27 @@ endif
 " }}}
 
 " vim:foldmethod=marker
+
+" Neomake {{{
+autocmd! BufWritePost,BufEnter * Neomake
+let g:neomake_javascript_enabled_makers = ['flake8', 'pylint']
+let g:neomake_warning_sign = {
+  \ 'text': '⚠',
+  \ 'texthl': 'WarningMsg',
+  \ }
+
+let g:neomake_error_sign = {
+  \ 'text': '✗',
+  \ 'texthl': 'ErrorMsg',
+  \ }
+
+" }}}
+
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+nmap <LocalLeader>k :lprevious<CR>
+nmap <LocalLeader>j :lnext<CR>
+
